@@ -46,3 +46,5 @@ end
 gem 'bootstrap-sass'
 
 gem 'pry'
+
+gem 'devise'
