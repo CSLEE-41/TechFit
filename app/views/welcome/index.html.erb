@@ -1,2 +1,29 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.min.css"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.print.css"/>
+
+
+
+<div id='calendar'>
+</div>
+
+
+<script>
+  $(document).ready(function() {
+
+      // page is now ready, initialize the calendar...
+
+
+      $('#calendar').fullCalendar({
+            events: <%= raw Event.all.to_json %>
+      })
+      $('my-prev-button').click(function(){
+          $('#calendar').fullCalendar('prev');
+      })
+
+
+
+  });
+</script>
+
+

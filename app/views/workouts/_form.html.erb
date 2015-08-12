@@ -1,0 +1,42 @@
+ <h1>New Workout</h1>
+ 
+ <div class="row">
+   <div class="col-md-4">
+     <p>Guidelines for Workouts:</p>
+     <ul>
+       <li>place guidelines.</li>
+       <li>dont forget to update this.</li>
+       <li>Chris im talking to you.</li>
+     </ul>
+   </div>
+   <div class="col-md-8">
+      <% if current_user %>
+       <%= form_for [current_user, @workout] do |f| %>
+         <div class="form-group">
+           <%= f.label :title %>
+           <%= f.text_field :title, class: 'form-control', placeholder: "Enter Workout Title" %>
+         </div>
+         <div class="form-group">
+           <%= f.label :muscle_group %>
+           <%= f.text_field :muscle_group, class: 'form-control', placeholder: "Enter Targeted Muscle Group" %>
+         </div>
+         <div class="form-group">
+           <%= f.label :day %>
+           <%= f.date_select :day, class: 'form-control', placeholder: "Enter Date To Be Performed." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :body %>
+           <%= f.text_area :body, rows: 20, class: 'form-control', placeholder: "This is where you would enter your workout. Example Format: Lift1 |  Rep Scheme |   Weight(lbs.) 
+           Bench  3 x 8 145(lbs)" %>
+         </div>
+         <div class="form-group">
+           <%= f.label :notes %>
+           <%= f.text_area :notes, rows: 5, class: 'form-control', placeholder: "This space is to provide extra information." %>
+         </div>
+         <div class= "form-group">
+         <%= f.submit "Save", class: 'btn btn-success' %>
+       <% end %>  
+      </div>
+      <% end %>
+   </div>
+ </div>

@@ -1,2 +1,4 @@
-<h1>Workout#edit</h1>
-<p>Find me in app/views/workout/edit.html.erb</p>
+<div class= "row">
+  <h3>Edit Workout</h3>
+  <%= render partial: 'form', locals: {user: @user, workout: @workout} %>
+</div>

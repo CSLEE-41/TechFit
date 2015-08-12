@@ -1,2 +1,10 @@
-<h1>Workout#show</h1>
-<p>Find me in app/views/workout/show.html.erb</p>
+<p> Workouts#show view </p> 
+  <h1><%= @workout.title %></h1>
+    <h4>Author: <em><%= @user.email %></em></h4>
+      <h5>Targeted Muscle Group(s): <%= @workout.muscle_group %></h5>
+        <div class= "jumbotron">
+          Workout:<br>
+          <%= @workout.body %><br><hr>
+          Notes:<br>
+          <%= @workout.notes %><br>
+        </div>

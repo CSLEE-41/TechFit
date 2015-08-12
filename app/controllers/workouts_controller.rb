@@ -1,10 +1,12 @@
 class WorkoutsController < ApplicationController
   
   def index
-    @workouts = Workout.all
+    @user = User.find(params[:user_id])
+    @workouts = @user.workouts.all
   end
 
   def show
+    @user = User.find(params[:user_id])
     @workout = Workout.find(params[:id])
   end
 
@@ -13,20 +15,18 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
     @workout = Workout.find(params[:id])
   end
 
   def create
-    @user = User.find([:user_id])
+    @user = User.find(params[:user_id])
     @workouts = @user.workouts
-
-    # binding.pry
-
     @workout = current_user.workouts.build(workout_params)
     @workout.user = @user
 
     if @workout.save
-      redirect_to @workout, notice: "New Workout Saved!"
+      redirect_to user_workouts_path, notice: "New Workout Saved!"
     else 
       flash[:error] = "Error saving your new workout. Please try again."
       render :new
@@ -34,10 +34,11 @@ class WorkoutsController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:user_id])
     @workout = Workout.find(params[:id])
 
     if @workout.update_attributes(workout_params)
-      redirect_to @workout
+      redirect_to user_workouts_path
     else
       flash[:error] = "Error with update. Please try again."
       render :edit
@@ -45,10 +46,13 @@ class WorkoutsController < ApplicationController
   end
 
   def destroy
-    @workout = workout.find(params[:id])
+    @user = User.find(params[:user_id])
+    @workout = Workout.find(params[:id])
+    
 
     if @workout.destroy
       flash[:notice] = "\"#{@workout.title}\" was deleted successfully."
+      redirect_to user_workouts_path
     else
       flash[:error] = "There was an error deleting the topic. Please try again."
       render :show
