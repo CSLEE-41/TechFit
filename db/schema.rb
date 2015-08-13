@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810145302) do
+ActiveRecord::Schema.define(version: 20150812201219) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "start"
@@ -20,6 +20,26 @@ ActiveRecord::Schema.define(version: 20150810145302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "nutrition_plans", force: :cascade do |t|
+    t.string   "title"
+    t.date     "day"
+    t.text     "meal_plan"
+    t.text     "notes"
+    t.integer  "day_total_calories"
+    t.integer  "day_total_carbs"
+    t.integer  "day_total_protein"
+    t.integer  "day_total_fats"
+    t.integer  "calories_goal"
+    t.integer  "carbs_goal"
+    t.integer  "protein_goal"
+    t.integer  "fats_goal"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "nutrition_plans", ["user_id"], name: "index_nutrition_plans_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
