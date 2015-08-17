@@ -13,28 +13,33 @@
                 <th> Calories/Macro-Nutrients</th>
                 <th>Current Intake:</th>
                 <th>Intake goal for the Day:</th>
+                <th>Total Remaining:</th>
               </thead>
                 <tr>
                   <td>Calories</td>
                   <td><%= @nutrition_plan.day_total_calories %></td>
                   <td><%= @nutrition_plan.calories_goal %></td>
+                  <td><%= @nutrition_plan.calories_remaining %></td>
                 </tr>
                 <tr>
                   <td>Carbohydrates</td>
                   <td><%= @nutrition_plan.day_total_carbs %></td>
                   <td><%= @nutrition_plan.carbs_goal %></td>
+                  <td><%= @nutrition_plan.carbs_remaining %></td>
                 </tr>
                 <tr>
                   <td>Protein(s)</td>
                   <td><%= @nutrition_plan.day_total_protein %></td>
                   <td><%= @nutrition_plan.protein_goal %></td>
+                  <td><%= @nutrition_plan.protein_remaining %></td>
                 </tr>
                 <tr>
                   <td>Fat(s)</td>
                   <td><%= @nutrition_plan.day_total_fats %></td>
                   <td><%= @nutrition_plan.fats_goal %></td>
+                  <td><%= @nutrition_plan.fats_remaining %> </td>
                 </tr>
             </tbody>
           </table>
-
+          <%= link_to "Edit", edit_user_nutrition_plan_path,class: 'btn btn-success'%>
         </div>

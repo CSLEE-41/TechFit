@@ -23,7 +23,7 @@ class NutritionPlansController < ApplicationController
     @nutrition_plan = NutritionPlan.find(params[:id])
 
     if @nutrition_plan.update_attributes(nutrition_plan_params)
-      redirect_to user_nutrition_plans_path, notice: "Plan updated."
+      redirect_to user_nutrition_plan_path, notice: "Plan updated."
     else 
       flash[:error] = "Failed to update the nutrition plan. Please try again."
       render :edit
