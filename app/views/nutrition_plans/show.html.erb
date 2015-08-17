@@ -42,4 +42,6 @@
             </tbody>
           </table>
           <%= link_to "Edit", edit_user_nutrition_plan_path,class: 'btn btn-success'%>
+          <%= link_to "Delete", user_nutrition_plan_path, method: :delete, data: {confirm: "Are you sure you want to delete this nutrition plan? "}, class: 'btn btn-danger' %>
+          <%= link_to "Nutrition Plans", user_nutrition_plans_path, class: 'btn btn-info' %>
         </div>
