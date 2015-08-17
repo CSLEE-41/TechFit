@@ -1,2 +1,40 @@
-<h1>NutritionPlan#show</h1>
-<p>Find me in app/views/nutrition_plan/show.html.erb</p>
+ <h1><%= @nutrition_plan.title %></h1>
+    <h4>Author: <em><%= @user.email %></em></h4>
+      <h5><%= @nutrition_plan.day %></h5>
+        <div class= "jumbotron">
+          Nutrition Plan:<br>
+          <%= @nutrition_plan.meal_plan %><br><hr>
+          Notes:<br>
+          <%= @nutrition_plan.notes %><br><hr>
+          Intake Goals:<br>
+          <table class= "table table-hover table-bordered table-striped">
+            <tbody>
+              <thead>
+                <th> Calories/Macro-Nutrients</th>
+                <th>Current Intake:</th>
+                <th>Intake goal for the Day:</th>
+              </thead>
+                <tr>
+                  <td>Calories</td>
+                  <td><%= @nutrition_plan.day_total_calories %></td>
+                  <td><%= @nutrition_plan.calories_goal %></td>
+                </tr>
+                <tr>
+                  <td>Carbohydrates</td>
+                  <td><%= @nutrition_plan.day_total_carbs %></td>
+                  <td><%= @nutrition_plan.carbs_goal %></td>
+                </tr>
+                <tr>
+                  <td>Protein(s)</td>
+                  <td><%= @nutrition_plan.day_total_protein %></td>
+                  <td><%= @nutrition_plan.protein_goal %></td>
+                </tr>
+                <tr>
+                  <td>Fat(s)</td>
+                  <td><%= @nutrition_plan.day_total_fats %></td>
+                  <td><%= @nutrition_plan.fats_goal %></td>
+                </tr>
+            </tbody>
+          </table>
+
+        </div>

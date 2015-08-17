@@ -1,0 +1,69 @@
+ <h1>Add a Nutrition Plan</h1>
+ 
+<div class = "row">
+   <div class="col-md-4">
+     <p>Guidelines for Nutrition Plans:</p>
+     <ul>
+       <li>place guidelines.</li>
+       <li>dont forget to update this.</li>
+       <li>Chris im talking to you.</li>
+     </ul>
+   </div>
+   <div class="col-md-8">
+      <% if current_user %>
+       <%= form_for [current_user, @nutrition_plan] do |f| %>
+         <div class="form-group">
+           <%= f.label :title %>
+           <%= f.text_field :title, class: 'form-control', placeholder: "Enter Nutrition Title" %>
+         </div>
+         <div class="form-group">
+           <%= f.label :day %>
+           <%= f.date_select :day, class: 'form-control', placeholder: "Enter date to be used." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :meal_plan %>
+           <%= f.text_area :meal_plan, rows: 25, class: 'form-control', placeholder: "Plan out your meals for the day here." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :notes %>
+           <%= f.text_area :notes, rows: 6, class: 'form-control', placeholder: "This space is to provide extra information." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :day_total_calories %>
+           <%= f.number_field :day_total_calories, class: 'form-control', placeholder: "Enter your total calories for the day. Enter 0 for now, and edit once you have finished your meals for the day." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :day_total_carbs %>
+           <%= f.number_field :day_total_carbs, class: 'form-control', placeholder: "Enter your total carbs for the day. Enter 0 for now, and edit once you have finished your meals for the day." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :day_total_protein %>
+           <%= f.number_field :day_total_protein, class: 'form-control', placeholder: "Enter your total protein for the day. Enter 0 for now, and edit once you have finished your meals for the day." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :day_total_fats %>
+           <%= f.number_field :day_total_fats, class: 'form-control', placeholder: "Enter your total fats for the day. Enter 0 for now, and edit once you have finished your meals for the day." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :calories_goal %>
+           <%= f.number_field :calories_goal, class: 'form-control', placeholder: "Enter your goal calorie intake for the day." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :carbs_goal %>
+           <%= f.number_field :carbs_goal, class: 'form-control', placeholder: "Enter your goal carb intake for the day." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :protein_goal %>
+           <%= f.number_field :protein_goal, class: 'form-control', placeholder: "Enter your goal protein intake for the day." %>
+         </div>
+         <div class="form-group">
+           <%= f.label :fats_goal %>
+           <%= f.number_field :fats_goal, class: 'form-control', placeholder: "Enter your goal fat intake for the day." %>
+         </div>
+         <div class= "form-group">
+         <%= f.submit "Save", class: 'btn btn-success' %>
+       <% end %>  
+       <% end %>
+      </div>
+   </div>
+</div>

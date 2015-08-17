@@ -23,7 +23,7 @@ class NutritionPlansController < ApplicationController
     @nutrition_plan = NutritionPlan.find(params[:id])
 
     if @nutrition_plan.update_attributes(nutrition_plan_params)
-      redirect_to user_nutrition_plans_path
+      redirect_to user_nutrition_plans_path, notice: "Plan updated."
     else 
       flash[:error] = "Failed to update the nutrition plan. Please try again."
       render :edit
@@ -60,6 +60,6 @@ class NutritionPlansController < ApplicationController
   private
 
   def nutrition_plan_params
-    params.require(:nutrition_plan).permit(:title, :day, :meal_plan, :notes, :day_total_calories, :day_total_carbs, :day_total_protein, :day_total_fats, :goal_calories, :goal_carbs, :goal_protein, :goal_fats)
+    params.require(:nutrition_plan).permit(:title, :day, :meal_plan, :notes, :day_total_calories, :day_total_carbs, :day_total_protein, :day_total_fats, :calories_goal, :carbs_goal, :protein_goal, :fats_goal)
   end
 end
