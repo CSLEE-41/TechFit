@@ -22,7 +22,7 @@
             },
             events: <%= raw Event.all.to_json %>,
             editable: true,
-
+            eventDrop: function(event, delta, revertFunc) {
                 if(event.end){
                   var endVal = event.end.format()
                 }else{

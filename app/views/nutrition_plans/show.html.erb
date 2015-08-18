@@ -3,7 +3,7 @@
       <h5><%= @nutrition_plan.day %></h5>
         <div class= "jumbotron">
           Nutrition Plan:<br>
-          <%= @nutrition_plan.meal_plan %><br><hr>
+          <%= simple_format @nutrition_plan.meal_plan %><br><hr>
           Notes:<br>
           <%= @nutrition_plan.notes %><br><hr>          
           Intake Goals:<br>
