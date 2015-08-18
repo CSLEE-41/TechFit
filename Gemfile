@@ -44,7 +44,9 @@ group :development, :test do
 end
 
 gem 'bootstrap-sass'
-
 gem 'pry'
-
 gem 'devise'
+gem 'figaro', '1.0'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
