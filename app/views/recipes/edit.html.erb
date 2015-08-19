@@ -1,0 +1,11 @@
+<div class="row">
+  <h1> Edit Recipe </h1>
+  <%= render partial: 'form_recipe', locals: {user: @user, recipe: @recipe} %>
+</div>
+
+<script>
+  $("#recipe_ingredients").jqte();
+</script>
+<script>
+  $("#recipe_instructions").jqte();
+</script>

@@ -1,0 +1,20 @@
+<% @recipes.each do |recipe| %>
+<div class= "well well-sm" style= "margin: 20px; padding: 10px;"><br>
+  <div class= "row">
+    <div class= "col-md-4" style= "padding:0px 0px 20px 30px;">
+      <%= image_tag(recipe.food_pic.profile.url) if recipe.food_pic? %>
+    </div>   
+    <div class= "col-md-4">
+      <h4><b><%= link_to recipe.title, [@user, recipe] %></b></h4>
+        Category: <%= recipe.category %><br>
+        <br>submitted <%= time_ago_in_words(recipe.created_at) %> ago by:
+        <em><b><%= recipe.user.name %></b></em>
+    </div>   
+    <div class= "col-md-4" style= "padding: 35px 0px 0px 150px;">
+      <%= link_to "Edit", edit_user_recipe_path(@user, recipe) ,class: 'btn btn-success'%>
+      <%= link_to "Delete", user_recipe_path(@user, recipe), method: :delete, data: {confirm: "Are you sure you want to delete this recipe? "}, class: 'btn btn-danger' %><br>
+    </div>
+  </div>
+</div>
+<% end %>
+  <%= link_to "Add Recipe", new_user_recipe_path, class: 'btn btn-success' %>

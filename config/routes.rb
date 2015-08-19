@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'event/index'
 
   get 'event/edit'
@@ -18,6 +19,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :update] do
     resources :nutrition_plans
+  end
+
+  resources :users, only: [:index, :show, :update] do
+    resources :recipes
   end
   
   get 'welcome/index'
