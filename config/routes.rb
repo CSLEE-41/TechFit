@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :update] do
     resources :recipes
   end
+
+  resources :users, only: [:index, :show, :update] do
+    resources :photos
+  end
   
   get 'welcome/index'
 

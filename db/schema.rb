@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819171444) do
+ActiveRecord::Schema.define(version: 20150820000739) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "start"
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 20150819171444) do
   end
 
   add_index "nutrition_plans", ["user_id"], name: "index_nutrition_plans_on_user_id"
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "photo_img"
+    t.string   "title"
+    t.date     "day"
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "photos", ["user_id"], name: "index_photos_on_user_id"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "title"

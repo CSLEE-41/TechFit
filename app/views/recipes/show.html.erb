@@ -6,11 +6,11 @@
         <div class= "col-md-3">
           <%= image_tag(@recipe.food_pic.profile.url) if @recipe.food_pic? %>
         </div>
-        <div class= "col-md-7">
+        <div class= "col-md-6">
           <b>Ingredients:</b> <br><%= @recipe.ingredients %><br><br>
           <b>Instructions:</b> <br><%= @recipe.instructions %><br><br>
         </div>
-        <div class= "col-md-2"> 
+        <div class= "col-md-3"> 
            <%= link_to "Edit", edit_user_recipe_path ,class: 'btn btn-success'%>
            <%= link_to "Delete", user_recipe_path, method: :delete, data: {confirm: "Are you sure you want to delete this recipe? "}, class: 'btn btn-danger' %>
         </div>
