@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820000739) do
+ActiveRecord::Schema.define(version: 20150822184320) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "start"
@@ -65,6 +65,22 @@ ActiveRecord::Schema.define(version: 20150820000739) do
   end
 
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
+
+  create_table "trackers", force: :cascade do |t|
+    t.boolean  "nutrition"
+    t.boolean  "workout"
+    t.boolean  "goals"
+    t.boolean  "weight"
+    t.boolean  "health"
+    t.date     "day"
+    t.integer  "day_points"
+    t.integer  "overall_points"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "trackers", ["user_id"], name: "index_trackers_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

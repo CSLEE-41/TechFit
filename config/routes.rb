@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+ 
+
   get 'event/index'
 
   get 'event/edit'
@@ -27,6 +29,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :update] do
     resources :photos
+  end
+
+  resources :users, only: [:show] do
+    resources :trackers
   end
   
   get 'welcome/index'
