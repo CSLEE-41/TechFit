@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
- 
 
   get 'event/index'
 
@@ -33,6 +32,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     resources :trackers
+  end
+
+  resources :users, only: [:show] do
+    resources :goal_lists
   end
   
   get 'welcome/index'
