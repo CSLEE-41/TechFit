@@ -57,6 +57,6 @@ class GoalListsController < ApplicationController
   end
 
   def goal_list_params
-    params.require(:goal_list).permit(:goal_one, :goal_two, :goal_three, :goal_four, :start_date, :end_date, :current_weight, :goal_weight)
+    params.require(:goal_list).permit(:goal_one, :goal_two, :goal_three, :goal_four, :start_date, :end_date, :current_weight, :goal_weight, :title)
   end
 end

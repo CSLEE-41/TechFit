@@ -1,4 +1,4 @@
-<h1 id= 'center-align'><%= @user.name %></h1>
+<h1 id= 'center-align'><%= @goal_list.title %></h1>
 <h5 id= 'center-align'><i>Mark as complete once finished:<i></h5>
 <br>
 <div class= 'row'>
@@ -55,9 +55,40 @@
   <div class= 'col-md-1 col-md-offset-1'>
     <button class='btn btn-warning' id='complete'>Complete</button>
   </div>
-</div><hr>
-<div id='progressbar'></div>  
+</div><br>
+
+<div class= 'col-md-4 col-md-offset-4'>
+    <b>Completion Status:</b>
+  <div id='progressbar'></div> 
+  <div id='percent'></div>
+</div>
+<br><br><hr>
+ 
 <p id= 'center-align'><%= link_to "Goal Lists", user_goal_lists_path, class: 'btn btn-info' %></p>
 
 
 
+<script>
+$(document).ready(function(){
+
+   $('#progressbar').progressbar({   
+        value: 0
+    });
+
+
+
+  $('button').on('click', function(){
+     var complete = $('<p id="comp-show">Complete!</p>');
+    $(this).closest('#goal_comp').append(complete);
+    $(this).remove(); 
+
+    currentValue = $('#progressbar').progressbar("value")
+
+    // window.debug(currentValue)
+    $('#progressbar').progressbar({   
+        value: currentValue + 25
+    });
+  });
+});
+
+</script>

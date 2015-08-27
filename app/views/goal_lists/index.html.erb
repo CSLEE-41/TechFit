@@ -18,8 +18,8 @@
           <td><%= goal_list.start_date %></td>
           <td><%= goal_list.end_date %></td>
           <td>
-            <%= link_to "Edit", [@user, goal_list], class: 'btn btn-success'%>
-            <%= link_to "Delete", [@user, goal_list], method: :delete, class: 'btn btn-danger' %>
+            <%= link_to "Edit", edit_user_goal_list_path(@user, goal_list), class: 'btn btn-success'%>
+            <%= link_to "Delete", user_goal_list_path(@user, goal_list), method: :delete, class: 'btn btn-danger' %>
           </td>
         </tr>
       </tbody>
