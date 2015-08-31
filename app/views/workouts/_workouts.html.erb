@@ -10,7 +10,7 @@
           <th> Options </th>
         </thead>
           <% if current_user %>
-          <% @workouts.each do |workout| %>
+          <% workouts.each do |workout| %>
             <tr>
              <td><%= workout.day %></td>
              <td><%= link_to workout.title, [@user, workout] %></td>
@@ -24,6 +24,6 @@
           <% end %>
       </tbody>
       </table>
-      <%= link_to "Add Workout!", new_user_workout_path, class: 'btn btn-success' %>
+      <%= link_to "Add Workout!", new_user_workout_path(current_user), class: 'btn btn-success' %>
     </div>
 </div>

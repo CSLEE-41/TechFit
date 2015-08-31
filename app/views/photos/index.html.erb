@@ -5,7 +5,7 @@
       <!-- Indicators -->
       <ol class="carousel-indicators">
 
-      <% @photos.each_with_index do |photo, i| %>
+      <% photos.each_with_index do |photo, i| %>
         <li 
           data-target="#carousel-example-generic" 
           data-slide-to="<%= i %>"
@@ -17,7 +17,7 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
-        <% @photos.each_with_index do |photo, i| %>
+        <% photos.each_with_index do |photo, i| %>
           <div class="item <%= 'active' if i == 0 %>">
             <%= image_tag photo.photo_img.large.url %>
             

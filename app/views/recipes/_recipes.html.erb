@@ -1,4 +1,4 @@
-<% @recipes.each do |recipe| %>
+<% recipes.each do |recipe| %>
 <div class= "well well-sm" style= "margin: 20px; padding: 10px;"><br>
   <div class= "row">
     <div class= "col-md-4" style= "padding:0px 0px 20px 30px;">
@@ -17,4 +17,4 @@
   </div>
 </div>
 <% end %>
-  <%= link_to "Add Recipe", new_user_recipe_path, class: 'btn btn-success' %>
+  <%= link_to "Add Recipe", new_user_recipe_path(current_user), class: 'btn btn-success' %>

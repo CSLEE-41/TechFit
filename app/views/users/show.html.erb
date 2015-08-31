@@ -1,5 +1,31 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
-<p><%= @user.email %></p>
+<div>
 
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#workouts" aria-controls="workouts" role="tab" data-toggle="tab">
+        Workouts
+      </a>
+    </li>
+    <li role="presentation"><a href="#nutrition_plans" aria-controls="nutrition_plans" role="tab" data-toggle="tab">Nutrition Plans</a></li>
+    <li role="presentation"><a href="#photos" aria-controls="photos" role="tab" data-toggle="tab">Photos</a></li>
+    <li role="presentation"><a href="#recipes" aria-controls="recipes" role="tab" data-toggle="tab">Recipes</a></li>
+  </ul>
 
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="workouts">
+      <%= render partial: "workouts/workouts", locals: {workouts: current_user.workouts} %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="nutrition_plans">
+      <%= render partial: "nutrition_plans/nutrition", locals: {nutrition_plans: current_user.nutrition_plans} %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+     ...
+    </div>
+    <div role="tabpanel" class="tab-pane" id="settings">
+      <%= render partial: "recipes/recipes", locals: {recipes: current_user.recipes} %>
+    </div>
+  </div>
+
+</div>

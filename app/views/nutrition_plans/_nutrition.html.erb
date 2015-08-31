@@ -9,7 +9,7 @@
           <th> Options </th>
         </thead>
           <% if current_user %>
-          <% @nutrition_plans.each do |nutrition_plan| %>
+          <% nutrition_plans.each do |nutrition_plan| %>
             <tr>
              <td><%= nutrition_plan.day %></td>
              <td><%= link_to nutrition_plan.title, [@user, nutrition_plan] %></td>
@@ -22,6 +22,6 @@
           <% end %>
       </tbody>
       </table>
-      <%= link_to "Add Nutrition Plan!", new_user_nutrition_plan_path, class: 'btn btn-success' %>
+      <%= link_to "Add Nutrition Plan!", new_user_nutrition_plan_path(current_user), class: 'btn btn-success' %>
     </div>
 </div>
