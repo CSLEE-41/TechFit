@@ -37,6 +37,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :goal_lists
   end
+
+  resources :goal_lists, only: [:index] do
+    resources :goals
+  end
   
   get 'welcome/index'
 

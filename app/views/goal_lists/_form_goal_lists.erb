@@ -32,22 +32,6 @@
            <b>End Date:</b>
            <%= f.date_select :end_date, class: 'form-control' %>
          </div>
-         <div class="form-group">
-           <%= f.label :goal_one %>
-           <%= f.text_area :goal_one, rows: 5, class: 'form-control', placeholder: "Enter your first goal here." %>
-         </div>
-         <div class="form-group">
-           <%= f.label :goal_two %>
-           <%= f.text_area :goal_two, rows: 5, class: 'form-control', placeholder: "Enter your second goal here." %>
-         </div>
-         <div class="form-group">
-           <%= f.label :goal_three %>
-           <%= f.text_area :goal_three, rows: 5, class: 'form-control', placeholder: "Enter your third goal here." %>
-         </div>
-         <div class="form-group">
-           <%= f.label :goal_four %>
-           <%= f.text_area :goal_four, rows: 5, class: 'form-control', placeholder: "Enter your fourth goal here." %>
-         </div>
          <div class= "form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
        <% end %>  

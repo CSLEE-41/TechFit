@@ -1,0 +1,11 @@
+<% if current_user %>
+  <%= form_for [@goal_list, Goal.new], remote: true do |f| %>
+    <div class="form-group">
+      <b>New Goal:</b><br>
+      <%= f.text_area :goal, rows: 3, placeholder: "Enter Goal:  Drag bottom right corner to expand text area."%>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Save Goal", class: "btn btn-success" %>
+    </div>
+  <% end %>
+<% end %>

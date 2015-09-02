@@ -1,0 +1,6 @@
+ <% if @goal.destroyed? %>
+   $('#goal-' +<%= @goal.id %>).hide();
+   $('.js-goals-count').html("<%= pluralize(@goal.user.goals.count, 'goal') %>");
+ <% else %>
+   $('#goal-' +<%= @goal.id %>).prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
+ <% end %>

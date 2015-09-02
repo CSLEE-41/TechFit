@@ -1,5 +1,8 @@
-<h1 id= 'center-align'><%= @goal_list.title %></h1>
+<div class= "row">
+  <h1 id= 'center-align'><%= @goal_list.title %></h1>
+</div>
 <h5 id= 'center-align'><i>Mark as complete once finished:<i></h5>
+<div class='js-goals-count' id= 'center-align'><%= pluralize(@user.goals.count, 'goal') %></div>
 <br>
 <div class= 'row'>
   <div class= 'col-md-2 col-md-offset-3'>
@@ -11,84 +14,37 @@
     <%= @goal_list.end_date %>
   </div>
 </div>
-
 <br>
-<div class= 'row' id= 'goal_comp'>
-  <div class= "col-md-4 col-md-offset-3">
-    <div class= 'well'>
-      <%= @goal_list.goal_one %>
-    </div>
-  </div>
-  <div class= 'col-md-1 col-md-offset-1'>
-    <button class='btn btn-warning' id= 'complete'>Complete</button>
-  </div>
-</div> 
 
-<div class= 'row' id= 'goal_comp'>
-  <div class= "col-md-4 col-md-offset-3">
-    <div class= 'well'>
-      <%= @goal_list.goal_two %>
-    </div>
-  </div>
-  <div class= 'col-md-1 col-md-offset-1'>
-    <button class='btn btn-warning' id= 'complete'>Complete</button>
-  </div>
-</div>
+      <div class = 'js-goals'>
+        <%= render partial: "goals/goal", collection: @goals %>
+      </div> 
+      <div class = 'new-goal' id= 'center-align'>
+        <%= render 'goals/form' %>
+      </div> 
+  
 
-<div class= 'row' id= 'goal_comp'>
-  <div class= "col-md-4 col-md-offset-3">
-    <div class= 'well'>
-      <%= @goal_list.goal_three %>
-    </div>
-  </div>
-  <div class= 'col-md-1 col-md-offset-1'>
-    <button class='btn btn-warning' id= 'complete'>Complete</button>
-  </div>
-</div> 
 
-<div class= 'row' id= 'goal_comp'>
-  <div class= "col-md-4 col-md-offset-3">
-    <div class= 'well'>
-      <%= @goal_list.goal_four %>
-    </div>
-  </div>
-  <div class= 'col-md-1 col-md-offset-1'>
-    <button class='btn btn-warning' id='complete'>Complete</button>
-  </div>
-</div><br>
+
+
+
 
 <div class= 'col-md-4 col-md-offset-4'>
     <b>Completion Status:</b>
   <div id='progressbar'></div> 
   <div id='percent'></div>
 </div>
-<br><br><hr>
- 
+<br><br><hr> 
 <p id= 'center-align'><%= link_to "Goal Lists", user_goal_lists_path, class: 'btn btn-info' %></p>
+
 
 
 
 <script>
 $(document).ready(function(){
-
    $('#progressbar').progressbar({   
         value: 0
     });
-
-
-
-  $('button').on('click', function(){
-     var complete = $('<p id="comp-show">Complete!</p>');
-    $(this).closest('#goal_comp').append(complete);
-    $(this).remove(); 
-
-    currentValue = $('#progressbar').progressbar("value")
-
-    // window.debug(currentValue)
-    $('#progressbar').progressbar({   
-        value: currentValue + 25
-    });
-  });
 });
 
 </script>

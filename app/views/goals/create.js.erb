@@ -1,0 +1,6 @@
+ <% if @goal.valid? %>
+   $('.js-goals').prepend("<%= escape_javascript(render(@goal)) %>");
+   $('.new-goal').html("<%= escape_javascript(render partial: 'goals/form', locals: { goal_list: @goal_list, goal: @goal }) %>");
+ <% else %>
+   $('.new-goal').html("<%= escape_javascript(render partial: 'goals/form', locals: { goal_list: @goal_list, goal: @goal }) %>");
+ <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825203324) do
+ActiveRecord::Schema.define(version: 20150831195457) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "start"
@@ -25,10 +25,6 @@ ActiveRecord::Schema.define(version: 20150825203324) do
     t.string   "title"
     t.integer  "current_weight"
     t.integer  "goal_weight"
-    t.text     "goal_one"
-    t.text     "goal_two"
-    t.text     "goal_three"
-    t.text     "goal_four"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "user_id"
@@ -37,6 +33,18 @@ ActiveRecord::Schema.define(version: 20150825203324) do
   end
 
   add_index "goal_lists", ["user_id"], name: "index_goal_lists_on_user_id"
+
+  create_table "goals", force: :cascade do |t|
+    t.text     "goal"
+    t.boolean  "complete"
+    t.integer  "user_id"
+    t.integer  "goal_list_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "goals", ["goal_list_id"], name: "index_goals_on_goal_list_id"
+  add_index "goals", ["user_id"], name: "index_goals_on_user_id"
 
   create_table "nutrition_plans", force: :cascade do |t|
     t.string   "title"
