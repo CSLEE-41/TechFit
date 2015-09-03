@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831195457) do
+ActiveRecord::Schema.define(version: 20150902234323) do
 
   create_table "events", force: :cascade do |t|
     t.datetime "start"
@@ -19,12 +19,19 @@ ActiveRecord::Schema.define(version: 20150831195457) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "goal_lists", force: :cascade do |t|
     t.string   "title"
     t.integer  "current_weight"
     t.integer  "goal_weight"
+    t.text     "goal_one"
+    t.text     "goal_two"
+    t.text     "goal_three"
+    t.text     "goal_four"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "user_id"

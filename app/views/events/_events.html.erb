@@ -1,1 +1,60 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.2/fullcalendar.min.css"/>
+
+
+
+
+<div id='calendar'>
+</div><br>
+<%= link_to "+ Event", new_user_event_path(current_user), class: 'btn btn-success' %>
+
+
+<script>
+  $(document).ready(function() {
+
+      // page is now ready, initialize the calendar...
+
+
+      $('#calendar').fullCalendar({
+            header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'month,agendaWeek,agendaDay'
+            },
+            events: <%= raw Event.all.to_json %>,
+            editable: true,
+            eventDrop: function(event, delta, revertFunc) {
+                if(event.end){
+                  var endVal = event.end.format()
+                }else{
+                  var endVal = event.start.format()
+                }
+
+                var dataHash = 
+                  {
+                    event: {
+                      start: event.start.format(),
+                      end: endVal
+                    }
+                  }
+
+
+                $.ajax("/events/"+event.id, {data: dataHash, method: "PUT"}, function(data){
+                    // this is the callback for successful update
+                  })
+
+            }
+      })
+     
+
+
+  });
+</script>
+
+<!-- {
+    left:   'title',
+    center: '',
+    right:  'today prev,next'
+} -->
+
 

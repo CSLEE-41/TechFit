@@ -2,8 +2,8 @@
   <div class= "col-md-6">
     Photos here 
   </div>
-  <div class= "col-md-6">
-    calendar here
+  <div class= "col-md-6" id= 'cal-user-show'>
+    <%= render partial: 'events/events' %>
   </div>
 </div>
 
@@ -17,7 +17,6 @@
       </a>
     </li>
     <li role="presentation"><a href="#nutrition_plans" aria-controls="nutrition_plans" role="tab" data-toggle="tab">Nutrition Plans</a></li>
-    <li role="presentation"><a href="#photos" aria-controls="photos" role="tab" data-toggle="tab">Photos</a></li>
     <li role="presentation"><a href="#recipes" aria-controls="recipes" role="tab" data-toggle="tab">Recipes</a></li>
   </ul>
 
@@ -29,10 +28,10 @@
     <div role="tabpanel" class="tab-pane" id="nutrition_plans">
       <%= render partial: "nutrition_plans/nutrition", locals: {nutrition_plans: current_user.nutrition_plans} %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="messages">
-     ...
+    <div role="tabpanel" class="tab-pane" id="recipes">
+      <%= render partial: "recipes/recipes", locals: {recipes: current_user.recipes} %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="settings">
+    <div role="tabpanel" class="tab-pane" id="recipes">
       <%= render partial: "recipes/recipes", locals: {recipes: current_user.recipes} %>
     </div>
   </div>

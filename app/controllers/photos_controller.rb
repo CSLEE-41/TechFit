@@ -59,6 +59,6 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:photo_img, :title, :message, :day)
+    params.require(:photo).permit(:photo_img, :title, :message, :day, :photo_img_cache)
   end
 end

@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'event/index'
-
-  get 'event/edit'
-
-  get 'event/update'
-
-  get 'event/destroy'
 
   devise_for :users
 
@@ -40,6 +33,10 @@ Rails.application.routes.draw do
 
   resources :goal_lists, only: [:index] do
     resources :goals
+  end
+
+  resources :users, only: [:show] do
+    resources :events
   end
   
   get 'welcome/index'

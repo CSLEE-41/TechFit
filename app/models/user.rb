@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :trackers, dependent: :destroy
   has_many :goal_lists, dependent: :destroy
   has_many :goals, dependent: :destroy
+  has_many :events, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
