@@ -9,6 +9,7 @@
  @import "user";
  @import "photos";
  @import "nutrition_plan";
+ @import "recipes";
 
 
 /* ALL BELOW ARE ON APPLICATION.HTML */
@@ -53,7 +54,8 @@ body {
   font-style: italic;
   text-align: center;
   text-shadow: 1px 1px 0 #000;
-  font-family: comic-sans;
+  font-family: florence;
+
 }
 
 #Fit {
@@ -68,5 +70,6 @@ body {
 #nav-main {
   margin-top: 40px;
 }
+
 
 

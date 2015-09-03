@@ -1,6 +1,6 @@
 <div class= "row">
-  <h3> Current Nutrition Plans </h3><br>
-    <div class= "col-md-8">
+  <h3 id= 'nutri-title'> Current Nutrition Plans </h3><br>
+    <div class= "col-md-10 col-md-offset-1">
       <table class= "table table-bordered table-hover">
         <tbody>
         <thead id= 'nutri-th'>
@@ -13,7 +13,7 @@
             <tr>
              <td><%= nutrition_plan.day %></td>
              <td><%= link_to nutrition_plan.title, [@user, nutrition_plan] %></td>
-             <td>
+             <td >
               <%= link_to "Edit", edit_user_nutrition_plan_path(@user, nutrition_plan) ,class: 'btn btn-success'%>
               <%= link_to "Delete", user_nutrition_plan_path(@user, nutrition_plan), method: :delete, data: {confirm: "Are you sure you want to delete this nutrition plan? "}, class: 'btn btn-danger' %>
              </td>
@@ -22,6 +22,7 @@
           <% end %>
       </tbody>
       </table>
-      <%= link_to "Add Nutrition Plan!", new_user_nutrition_plan_path(current_user), class: 'btn btn-success' %>
+      <p id= 'nutri-title'><%= link_to "Add Nutrition Plan!", new_user_nutrition_plan_path(current_user), class: 'btn btn-success' %>
+      </p>
     </div>
 </div>

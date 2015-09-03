@@ -1,6 +1,6 @@
 <div class= "row">
-  <h3> Current Workouts </h3><br>
-    <div class= "col-md-8">
+  <h3 id= 'wo-title'> Current Workouts </h3><br>
+    <div class= "col-md-12">
       <table class= "table table-bordered table-hover">
         <tbody>
         <thead id='workout-th'>
@@ -24,6 +24,6 @@
           <% end %>
       </tbody>
       </table>
-      <%= link_to "Add Workout!", new_user_workout_path(current_user), class: 'btn btn-success' %>
+      <p id= 'wo-title'><%= link_to "Add Workout!", new_user_workout_path(current_user), class: 'btn btn-success' %></p>
     </div>
 </div>

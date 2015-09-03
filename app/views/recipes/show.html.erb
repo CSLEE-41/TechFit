@@ -1,6 +1,6 @@
-<h1><em><b><%= @recipe.title %></b></em></h1>
-    <h4>Category: <%= @recipe.category %></h4>
-    <h5> Author: <em><%= @user.name %></em></h5>
+<h1 id= 'recip-show'><em><b><%= @recipe.title %></b></em></h1>
+    <h4 id='recip-show'>Category: <%= @recipe.category %></h4>
+    <h5 id='recip-show'> Author: <em><%= @user.name %></em></h5>
     <div class= "jumbotron">
       <div class= "row">
         <div class= "col-md-3">
@@ -16,5 +16,5 @@
         </div>
       </div>
     </div>
-      <%= link_to "Recipes", user_recipes_path, class: 'btn btn-info' %>
+     <p id='recip-show'><%= link_to "Recipes", user_recipes_path, class: 'btn btn-info' %></p>
 

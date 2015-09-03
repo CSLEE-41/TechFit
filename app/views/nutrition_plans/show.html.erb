@@ -1,6 +1,6 @@
- <h1><%= @nutrition_plan.title %></h1>
-    <h4>Author: <em><%= @user.name %></em></h4>
-      <h5><%= @nutrition_plan.day %></h5>
+ <h1 id='nutri-title'><%= @nutrition_plan.title %></h1>
+    <h4 id= 'nutri-title'>Author: <em><%= @user.name %></em></h4>
+      <h5 id= 'nutri-title'><%= @nutrition_plan.day %></h5>
         <div class= "jumbotron">
           Nutrition Plan:<br>
           <%= simple_format @nutrition_plan.meal_plan %><br><hr>
