@@ -1,6 +1,6 @@
 <div class= "row">
   <div class= "col-md-6">
-    Photos here 
+    <%= render partial: 'photos/photos' %>
   </div>
   <div class= "col-md-6" id= 'cal-user-show'>
     <%= render partial: 'events/events' %>
@@ -27,9 +27,6 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="nutrition_plans">
       <%= render partial: "nutrition_plans/nutrition", locals: {nutrition_plans: current_user.nutrition_plans} %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="recipes">
-      <%= render partial: "recipes/recipes", locals: {recipes: current_user.recipes} %>
     </div>
     <div role="tabpanel" class="tab-pane" id="recipes">
       <%= render partial: "recipes/recipes", locals: {recipes: current_user.recipes} %>

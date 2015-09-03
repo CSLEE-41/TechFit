@@ -1,11 +1,12 @@
+<h3 id= 'photo-title'><em><%= @user.name %>'s Album</em></h3>
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
+  <div class="col-md-4">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
     style="height: 350;width: 350px;margin:20px 0px 0px 0px;">
       <!-- Indicators -->
       <ol class="carousel-indicators">
 
-      <% @photos.each_with_index do |photo, i| %>
+      <% current_user.photos.each_with_index do |photo, i| %>
         <li 
           data-target="#carousel-example-generic" 
           data-slide-to="<%= i %>"
@@ -17,7 +18,7 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
-        <% @photos.each_with_index do |photo, i| %>
+        <% current_user.photos.each_with_index do |photo, i| %>
           <div class="item <%= 'active' if i == 0 %>">
             <%= image_tag photo.photo_img.large.url %>
             
@@ -42,3 +43,4 @@
     </div>
   </div>
 </div>
+  <p id= 'add-photo'><%= link_to "Photo", new_user_photo_path(current_user), class: 'glyphicon glyphicon-plus' %></p>
