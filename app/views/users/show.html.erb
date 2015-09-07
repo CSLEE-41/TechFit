@@ -18,6 +18,7 @@
     </li>
     <li role="presentation"><a href="#nutrition_plans" aria-controls="nutrition_plans" role="tab" data-toggle="tab">Nutrition Plans</a></li>
     <li role="presentation"><a href="#recipes" aria-controls="recipes" role="tab" data-toggle="tab">Recipes</a></li>
+    <li role="presentation"><a href="#goal_lists" aria-controls="goal_lists" role="tab" data-toggle="tab">Goal Lists</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -30,6 +31,9 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="recipes">
       <%= render partial: "recipes/recipes", locals: {recipes: current_user.recipes} %>
+    </div>
+     <div role="tabpanel" class="tab-pane" id="goal_lists">
+      <%= render partial: "goal_lists/goal_lists", locals: {goal_lists: current_user.goal_lists} %>
     </div>
   </div>
 

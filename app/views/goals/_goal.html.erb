@@ -10,6 +10,10 @@
     </div>
   </div>
   <div class= 'col-md-2 col-md-offset-1' id = 'goal-button'>
-    <a href="/goal_lists/<%= goal.goal_list.id %>/goals/<%= goal.id %>/?complete=true" class='btn btn-warning' id= 'complete' data-remote="true" data-method="PATCH">Complete</a>
+    <% if goal.complete %>
+      COMPLETED
+    <% else %>
+      <a href="/goal_lists/<%= goal.goal_list.id %>/goals/<%= goal.id %>/?complete=true" class='btn btn-warning' id= 'complete' data-remote="true" data-method="PATCH">Complete</a>
+    <% end %>
   </div>
 </div>

@@ -7,8 +7,12 @@
 
   currentValue = $('#progressbar').progressbar("value")
 
+  denominator = $(".js-goals-count").text().match(/\d+/g)[0]
+
+
   // window.debug(currentValue)
-  $('#progressbar').progressbar({   
-      value: currentValue + ((1/2) * 100)
+  $('#progressbar').progressbar({
+      value: currentValue + ((1/denominator) * 100)
       // tried @goal_list.goals.count/$('.js-goals-count')lets get this working 
-});  
+      // multiple forms of each 
+  });  

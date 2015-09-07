@@ -40,7 +40,7 @@ class GoalsController < ApplicationController
 
     @goal.complete = params[:complete]
 
-
+    
     @goal.save
     # if @goal.update_attributes(goal_params)
     #   flash[:notice] = "Goal updated!"

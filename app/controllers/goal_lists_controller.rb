@@ -25,7 +25,7 @@ class GoalListsController < ApplicationController
     @goal_list.user = @user
 
     if @goal_list.save
-      redirect_to user_goal_lists_path, notice: 'Goals were saved successfully.'
+      redirect_to user_path, notice: 'Goals were saved successfully.'
     else
       flash[:error] = 'Failed to save goals. Please try again.'
       render :new

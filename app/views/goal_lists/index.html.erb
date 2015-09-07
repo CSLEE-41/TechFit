@@ -1,2 +1,2 @@
-<h3>Goal Lists</h3>
-<%= render partial: 'goal_lists', locals: {user: @user, goal_list: @goal_list} %>
+
+<%= render partial: 'goal_lists', locals: { goal_lists: current_user.goal_lists} %>

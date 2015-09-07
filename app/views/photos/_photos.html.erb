@@ -20,7 +20,9 @@
       <div class="carousel-inner" role="listbox">
         <% current_user.photos.each_with_index do |photo, i| %>
           <div class="item <%= 'active' if i == 0 %>">
-            <%= image_tag photo.photo_img.large.url %>
+            <%= link_to user_photo_path(current_user, photo) do %>
+              <%= image_tag photo.photo_img.large.url %>
+            <% end %>
             
             <div class="carousel-caption">
               <q><%= photo.message %></q>

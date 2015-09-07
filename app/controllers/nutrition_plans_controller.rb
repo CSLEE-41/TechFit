@@ -23,7 +23,7 @@ class NutritionPlansController < ApplicationController
     @nutrition_plan = NutritionPlan.find(params[:id])
 
     if @nutrition_plan.update_attributes(nutrition_plan_params)
-      redirect_to user_nutrition_plan_path, notice: "Plan updated."
+      redirect_to user_path, notice: "Plan updated."
     else 
       flash[:error] = "Failed to update the nutrition plan. Please try again."
       render :edit
@@ -37,7 +37,7 @@ class NutritionPlansController < ApplicationController
     @nutrition_plan.user = @user  
 
     if @nutrition_plan.save
-      redirect_to user_nutrition_plans_path, notice: "New Nutrition Plan Saved!"
+      redirect_to user_path, notice: "New Nutrition Plan Saved!"
     else
       flash[:error] = "Error saving nutrition plan. Please try again."
       render :new
@@ -50,7 +50,7 @@ class NutritionPlansController < ApplicationController
 
     if @nutrition_plan.destroy
       flash[:notice] = "\"#{@nutrition_plan.title}\" was successfully deleted."
-      redirect_to user_nutrition_plans_path
+      redirect_to user_path
     else
       flash[:error] = "Failed to delete nutrition plan. Please try again."
       render :show
