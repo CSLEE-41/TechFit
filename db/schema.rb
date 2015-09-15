@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150902234323) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: :cascade do |t|
     t.datetime "start"
     t.datetime "end"
@@ -22,16 +25,12 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.integer  "user_id"
   end
 
-  add_index "events", ["user_id"], name: "index_events_on_user_id"
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "goal_lists", force: :cascade do |t|
     t.string   "title"
     t.integer  "current_weight"
     t.integer  "goal_weight"
-    t.text     "goal_one"
-    t.text     "goal_two"
-    t.text     "goal_three"
-    t.text     "goal_four"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "user_id"
@@ -39,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "goal_lists", ["user_id"], name: "index_goal_lists_on_user_id"
+  add_index "goal_lists", ["user_id"], name: "index_goal_lists_on_user_id", using: :btree
 
   create_table "goals", force: :cascade do |t|
     t.text     "goal"
@@ -50,8 +49,8 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "goals", ["goal_list_id"], name: "index_goals_on_goal_list_id"
-  add_index "goals", ["user_id"], name: "index_goals_on_user_id"
+  add_index "goals", ["goal_list_id"], name: "index_goals_on_goal_list_id", using: :btree
+  add_index "goals", ["user_id"], name: "index_goals_on_user_id", using: :btree
 
   create_table "nutrition_plans", force: :cascade do |t|
     t.string   "title"
@@ -71,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "nutrition_plans", ["user_id"], name: "index_nutrition_plans_on_user_id"
+  add_index "nutrition_plans", ["user_id"], name: "index_nutrition_plans_on_user_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "photo_img"
@@ -83,7 +82,7 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "photos", ["user_id"], name: "index_photos_on_user_id"
+  add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "title"
@@ -96,7 +95,7 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
+  add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 
   create_table "trackers", force: :cascade do |t|
     t.boolean  "nutrition"
@@ -112,7 +111,7 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "trackers", ["user_id"], name: "index_trackers_on_user_id"
+  add_index "trackers", ["user_id"], name: "index_trackers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -131,8 +130,8 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.string   "avatar"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "workouts", force: :cascade do |t|
     t.string   "title"
@@ -145,6 +144,15 @@ ActiveRecord::Schema.define(version: 20150902234323) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id"
+  add_index "workouts", ["user_id"], name: "index_workouts_on_user_id", using: :btree
 
+  add_foreign_key "events", "users"
+  add_foreign_key "goal_lists", "users"
+  add_foreign_key "goals", "goal_lists"
+  add_foreign_key "goals", "users"
+  add_foreign_key "nutrition_plans", "users"
+  add_foreign_key "photos", "users"
+  add_foreign_key "recipes", "users"
+  add_foreign_key "trackers", "users"
+  add_foreign_key "workouts", "users"
 end

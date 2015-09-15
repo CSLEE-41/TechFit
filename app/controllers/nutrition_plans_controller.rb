@@ -37,7 +37,7 @@ class NutritionPlansController < ApplicationController
     @nutrition_plan.user = @user  
 
     if @nutrition_plan.save
-      redirect_to user_path, notice: "New Nutrition Plan Saved!"
+      redirect_to user_path(@user), notice: "New Nutrition Plan Saved!"
     else
       flash[:error] = "Error saving nutrition plan. Please try again."
       render :new

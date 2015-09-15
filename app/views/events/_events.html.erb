@@ -21,7 +21,7 @@
               center: 'title',
               right: 'month,agendaWeek,agendaDay'
             },
-            events: <%= raw Event.all.to_json %>,
+            events: <%= raw @events.to_json %>,
             editable: true,
             eventDrop: function(event, delta, revertFunc) {
                 if(event.end){
