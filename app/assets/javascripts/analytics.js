@@ -30,7 +30,10 @@ blocmetrics.report = function(arg1){
 
 $(document).ready(function(){
 
-  $("#sgn-sbmt").click(blocmetrics.report('Test'));
-  $("#wkt-sbmt").click(blocmetrics.report('Workouts'));
+  $("#sgn-sbmt").click(blocmetrics.report('Sign-up'));
+  $("#wkt-sbmt").click(blocmetrics.report('Workout'));
+  $("#ntr-sbmt").click(blocmetrics.report('Nutrition'));
+  $("#rec-sbmt").click(blocmetrics.report('Recipe'));
+  $("ph-sbmt").click(blocmetrics.report('Photo'));
 
 });
