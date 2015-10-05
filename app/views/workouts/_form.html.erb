@@ -29,11 +29,11 @@
            <%= f.text_area :body, rows: 20, class: 'form-control', placeholder: "This is where you would enter your workout. Example Format: Lift1 |  Rep Scheme |   Weight(lbs.) 
            Bench  3 x 8 145(lbs)" %>
          </div>
-         <div class="form-group">
+         <div class="form-group" >
            <%= f.label :notes %>
            <%= f.text_area :notes, rows: 5, class: 'form-control', placeholder: "This space is to provide extra information." %>
          </div>
-         <div class= "form-group">
+         <div class= "form-group" id= 'wkt-sbmt'>
          <%= f.submit "Save", class: 'btn btn-success' %>
        <% end %>  
       </div>
